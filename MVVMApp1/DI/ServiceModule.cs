@@ -2,7 +2,7 @@
 using MVVMApp1.Views;
 using Ninject.Modules;
 
-namespace MVVMApp1.Ninject
+namespace MVVMApp1.DI
 {
     class ServiceModule : NinjectModule
     {

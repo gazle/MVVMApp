@@ -1,7 +1,7 @@
 ﻿using MVVMApp1.ViewModels;
 using Ninject;
 
-namespace MVVMApp1.Ninject
+namespace MVVMApp1.DI
 {
     class ServiceLocator
     {

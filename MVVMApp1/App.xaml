@@ -1,13 +1,13 @@
 ﻿<Application
     x:Class="MVVMApp1.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:MVVMApp1" xmlns:ninject="clr-namespace:MVVMApp1.Ninject" xmlns:vm="clr-namespace:MVVMApp1.ViewModels" xmlns:vw="clr-namespace:MVVMApp1.Views"
+    xmlns:local="clr-namespace:MVVMApp1" xmlns:di="clr-namespace:MVVMApp1.DI" xmlns:vm="clr-namespace:MVVMApp1.ViewModels" xmlns:vw="clr-namespace:MVVMApp1.Views"
     StartupUri="Views\MainView.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <ninject:ServiceLocator x:Key="ServiceLocator" />
+                    <di:ServiceLocator x:Key="ServiceLocator" />
                     <DataTemplate DataType="{x:Type vm:AlertDialogViewModel}">
                         <vw:AlertDialogView />
                     </DataTemplate>
