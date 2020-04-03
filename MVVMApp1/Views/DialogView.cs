@@ -6,7 +6,7 @@ using System.Windows;
 namespace MVVMApp1.Views
 {
     // Implementation of IDialog for WPF dialogs
-    class DialogViewProxy : IDialog
+    class DialogView : IDialog
     {
         public bool? ShowDialog(DialogViewModelBase viewModel, object owner)
         {

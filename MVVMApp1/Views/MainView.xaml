@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:MVVMApp1.ViewModels"
     Title="MainView"
     Width="431" Height="242"
-    DataContext="{Binding Path=MainViewModel, Source={StaticResource ServiceLocator}}"
+    DataContext="{Binding Path=MainViewModel, Source={StaticResource IoC}}"
     KeyDown="Window_KeyDown"
     mc:Ignorable="d">
     <Window.Resources>

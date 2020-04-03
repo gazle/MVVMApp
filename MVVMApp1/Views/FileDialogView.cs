@@ -16,9 +16,9 @@ namespace MVVMApp1.Views
         public string DefaultExt { get { return dialog.DefaultExt; } set { dialog.DefaultExt = value; } }
         public string Title { get { return dialog.Title; } set { dialog.Title = value; } }
 
-        public FileDialogView()
+        public FileDialogView(OpenFileDialog dialog)
         {
-            dialog = new OpenFileDialog();
+            this.dialog = dialog;
         }
 
         public bool? ShowDialog(object owner)

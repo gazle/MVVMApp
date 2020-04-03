@@ -5,8 +5,8 @@ namespace MVVMApp1.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
-        readonly IDialogService dialogService;
-        readonly IFileDialogService fileDialogService;
+        readonly IDialog dialog;
+        readonly IFileDialog fileDialog;
         int count;
         string fileName;
 
@@ -16,10 +16,10 @@ namespace MVVMApp1.ViewModels
         public int Count { get { return count; } set { count = value; OnPropertyChanged(); } }
         public string FileName { get { return fileName; } set { fileName = value; OnPropertyChanged(); } }
 
-        public MainViewModel(IDialogService dialogService, IFileDialogService fileDialogService)
+        public MainViewModel(IDialog dialog, IFileDialog fileDialog)
         {
-            this.dialogService = dialogService;
-            this.fileDialogService = fileDialogService;
+            this.dialog = dialog;
+            this.fileDialog = fileDialog;
             YesNoCommand = new DelegateCommand<object>(YesNo);
             AlertCommand = new DelegateCommand<object>(Alert);
             BrowseCommand = new DelegateCommand<object>(Browse);
@@ -27,18 +27,18 @@ namespace MVVMApp1.ViewModels
 
         private void Browse(object owner)
         {
-            fileDialogService.InitialDirectory = Directory.GetCurrentDirectory();
-            fileDialogService.Title = "Open new file";
-            if (fileDialogService.OpenFileDialog(owner) is true)
+            fileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            fileDialog.Title = "Open new file";
+            if (fileDialog.ShowDialog(owner) is true)
             {
-                FileName = fileDialogService.FileName;
+                FileName = fileDialog.FileName;
             }
         }
 
         private void YesNo(object owner)
         {
-            var dialog = new YesNoDialogViewModel("Question", "Can you see this?", YesNoUpdate);
-            bool? dialogResult = dialogService.OpenDialog(dialog, owner);
+            var viewModel = new YesNoDialogViewModel("Question", "Can you see this?", YesNoUpdate);
+            bool? dialogResult = dialog.ShowDialog(viewModel, owner);
         }
 
         private void YesNoUpdate(DialogViewModelBase viewModel)
@@ -48,8 +48,8 @@ namespace MVVMApp1.ViewModels
 
         private void Alert(object owner)
         {
-            var dialog = new AlertDialogViewModel("Attention", "Alert");
-            bool? dialogResult = dialogService.OpenDialog(dialog, owner);
+            var viewModel = new AlertDialogViewModel("Attention", "Alert");
+            bool? dialogResult = dialog.ShowDialog(viewModel, owner);
         }
     }
 }

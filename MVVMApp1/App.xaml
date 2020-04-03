@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <di:ServiceLocator x:Key="ServiceLocator" />
+                    <x:StaticExtension Member="di:IoC.Instance" x:Key="IoC" />
                     <DataTemplate DataType="{x:Type vm:AlertDialogViewModel}">
                         <vw:AlertDialogView />
                     </DataTemplate>

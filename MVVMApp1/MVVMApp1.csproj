@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.3.4" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <PackageReference Include="SimpleInjector" Version="4.9.1" />
   </ItemGroup>
 
 </Project>
