@@ -1,4 +1,5 @@
-﻿using MVVMApp1.Dialogs;
+﻿using Microsoft.Win32;
+using MVVMApp1.Dialogs;
 using MVVMApp1.ViewModels;
 using MVVMApp1.Views;
 using SimpleInjector;
@@ -15,6 +16,8 @@ namespace MVVMApp1.DI
 
         IoC()
         {
+            container.Register<MainViewModel>();
+            container.Register<OpenFileDialog>();
             container.Register<IDialog, DialogView>();
             container.Register<IFileDialog, FileDialogView>();
         }

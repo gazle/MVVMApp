@@ -9,7 +9,7 @@
     KeyDown="Window_KeyDown"
     mc:Ignorable="d">
     <Window.Resources>
-        <local:SampleConverter x:Key="SampleConverter" />
+        <x:StaticExtension Member="local:SampleConverter.Instance" x:Key="SampleConverter" />
     </Window.Resources>
     <Window.ContextMenu>
         <ContextMenu>
